@@ -15,8 +15,10 @@ import (
 	"io/ioutil"
 
 	"github.com/btcsuite/btcec"
-	"github.com/btcsuite/btcnet"
+//	"github.com/btcsuite/btcnet"
 	"github.com/btcsuite/btcutil"
+
+	"github.com/btcsuite/btcd/chaincfg"
 )
 
 // Flags
@@ -62,7 +64,7 @@ func generateKeyPair(filename string) error {
 
 	// Store the address in case anyone wants to use it for BTC
 	pkh, err := btcutil.NewAddressPubKey(pubkeyBtcec.SerializeCompressed(),
-		&btcnet.MainNetParams)
+		&chaincfg.MainNetParams)
 	if err != nil {
 		return err
 	}
